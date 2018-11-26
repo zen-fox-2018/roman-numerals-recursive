@@ -1,8 +1,5 @@
 function toRoman(input) {
   // start your code here
-  if(input === 0){
-    return ''
-  }
   const obj = {
     M : 1000,
     CM : 900, 
