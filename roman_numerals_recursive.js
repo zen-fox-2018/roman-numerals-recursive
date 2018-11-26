@@ -13,20 +13,17 @@ function toRoman(input) {
     V:5,
     IV:4,
     I:1
-}
+  }
   let result = ""
-  if(input === 0){
+  if (input === 0) {
     return result
   }
 
-  for(i in Roman){
-    if(input >= Roman[i]){
+  for (i in Roman) {
+    if (input >= Roman[i]) {
       return result+= i + toRoman(input-Roman[i])
     }
   }
-  
-  // start your code here
- 
 }
 
 console.log('My totally sweet testing script for new roman\n')
