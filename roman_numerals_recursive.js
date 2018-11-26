@@ -1,31 +1,19 @@
 function toRoman(input) {
-  let numStr = String(input)
+  let romanDic = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I']
+  let numberDic = [1000,900,500,400,100,90,50,40,10,9,5,4,1 ]
   let number = input
-  let ribuanDic = ["","M","MM","MMM"]
-  let ratusanDic = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"]
-  let puluhanDic = ["","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"]
-  let satuanDic = ["","I","II","III","IV","V","VI","VII","VIII","IX"]
   let result = ""
 
-  if (numStr.length === 4) {
-    result = ribuanDic[Number(numStr[0])]
-    let pengurang = Math.floor(number/1000)*1000
-    return result + toRoman(number - pengurang)
-  }
-  else if (numStr.length === 3) {
-    result = ratusanDic[Number(numStr[0])]
-    let pengurang = Math.floor(number/100)*100
-    return result + toRoman(number - pengurang)
-  }
-  else if (numStr.length === 2) {
-    result = puluhanDic[Number(numStr[0])]
-    let pengurang = Math.floor(number/10)*10
-    return result + toRoman(number - pengurang)
-  }
-  else if (numStr.length === 1) {
-    result = satuanDic[input]
+  let index = numberDic.findIndex(function(element) {
+    return element <= number
+  })
+  result = romanDic[index]
+  number = number - numberDic[index]
+
+  if (number === 0) {
     return result
   }
+  return result + toRoman(number)
 }
 
 console.log('My totally sweet testing script for new roman\n')
