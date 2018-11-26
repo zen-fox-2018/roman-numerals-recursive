@@ -1,6 +1,30 @@
 function toRoman(input) {
-  // start your code here
-  return to_roman(input);
+  let kamus = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD:400 ,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1
+  }
+  let result = ''
+  if(input == 0) {
+    return result
+  } else {
+    for(i in kamus) {
+      if(input >= kamus[i]){
+        result += i
+        return result + toRoman(input-kamus[i]);
+      }
+    }
+  }
 }
 
 console.log('My totally sweet testing script for new roman\n')
