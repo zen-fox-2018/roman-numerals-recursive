@@ -1,6 +1,16 @@
 function toRoman(input) {
   // start your code here
-  return to_roman(input);
+  var nomor = [1, 4, 5, 9, 10, 40 , 50, 90, 100, 400, 500, 900, 1000];
+  var romawi = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
+  if(input === 0){
+    return '';
+  } else {
+    for(var i = nomor.length-1; i>=0;i--){
+      if(input >= nomor[i]){
+        return romawi[i] + toRoman(input - nomor[i]);
+      }
+    }
+  }
 }
 
 console.log('My totally sweet testing script for new roman\n')
